@@ -1163,9 +1163,8 @@ input, textarea {
 .submit-btn:hover {
   background:#0d1533;
 }
-
 /* ======================================
-   MOBILE STYLES (CALM / MINIMAL)
+   MOBILE STYLES (RESPONSIVE DESIGN)
 ====================================== */
 
 @media (max-width: 768px) {
@@ -1173,149 +1172,125 @@ input, textarea {
   /* --------------------
      HEADER
   -------------------- */
-
   header {
-    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 10px 20px;
   }
 
   .logo {
-    margin-bottom: 12px;
-    text-align: center;
+    width: 100px; /* Smaller logo */
+    height: auto;
   }
-
-  /* --------------------
-     NAV (ROW-BASED, WRAPS)
-  -------------------- */
 
   header nav {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1em;
-    margin-top: 12px;
+    gap: 10px;
   }
 
   header nav a {
-    font-size: 1rem;
+    font-size: 14px;
     padding: 4px 6px;
   }
 
   /* --------------------
-     SERVICES (INLINE LIST)
+     TYPOGRAPHY
   -------------------- */
-
-  .dropdown {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5em;
-  }
-
-  .dropbtn {
-    font-size: 1rem;
-    font-weight: 500;
-    pointer-events: none; /* label only */
-  }
-
-  .dropdown-content {
-    position: static;
-    display: flex;
-    flex-direction: row;
-    gap: 0.5em;
-    background: none;
-    padding: 0;
-  }
-
-  .dropdown-content a {
-    font-size: 0.95rem;
-    opacity: 0.85;
-  }
-
-  /* Disable hover dropdown behavior */
-  .dropdown:hover .dropdown-content {
-    display: flex;
-  }
-
-  /* --------------------
-     HERO / HEADINGS
-  -------------------- */
-
   h1 {
-    font-size: 2.2rem;
+    font-size: 28px;
   }
 
   h2 {
-    font-size: 1.6rem;
+    font-size: 22px;
   }
 
   h3 {
-    font-size: 1.2rem;
+    font-size: 18px;
   }
 
   p {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  /* --------------------
-     TWO-COLUMN → STACK
-  -------------------- */
-
-  .two-col,
-  .mission-section,
-  .service-block,
-  .hardscaping-main {
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-    padding: 48px 24px;
-  }
-
-  /* --------------------
-     IMAGES
-  -------------------- */
-
-  img {
-    max-width: 90%;
-    height: auto;
+    font-size: 14px;
+    line-height: 1.5;
   }
 
   /* --------------------
      SERVICES GRID
   -------------------- */
-
   .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 20px;
+  }
+
+  .service-card {
+    padding: 20px;
+  }
+
+  .service-card h3 {
+    font-size: 16px;
   }
 
   /* --------------------
      FOOTER
   -------------------- */
-
   .footer-content {
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .footer-column h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .footer-nav a,
+  .footer-contact-info p {
+    font-size: 12px;
+  }
+
+  .footer-contact-button {
+    padding: 8px 16px;
+    font-size: 12px;
   }
 }
 
-/* --------------------
-   SMALL PHONES
--------------------- */
-
 @media (max-width: 480px) {
 
-  .services-grid {
-    grid-template-columns: 1fr;
+  /* --------------------
+     HEADER
+  -------------------- */
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    margin-bottom: 10px;
   }
 
   header nav {
-    gap: 0.75em;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
   }
 
-  h1 {
-    font-size: 2rem;
+  /* --------------------
+     SERVICES GRID
+  -------------------- */
+  .services-grid {
+    grid-template-columns: 1fr; /* Single column */
+  }
+
+  /* --------------------
+     FOOTER
+  -------------------- */
+  .footer-content {
+    grid-template-columns: 1fr; /* Single column */
+    text-align: center;
+  }
+
+  .footer-contact-button {
+    width: 100%; /* Full-width button */
   }
 }
