@@ -1164,88 +1164,140 @@ input, textarea {
   background:#0d1533;
 }
 
-
 /* ======================================
-   MOBILE STYLES
+   MOBILE STYLES (CALM / MINIMAL)
 ====================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
 
   /* --------------------
      HEADER
   -------------------- */
+
   header {
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px;
   }
 
-  header .logo {
-    width: 100px; /* Smaller logo */
-    height: auto;
-  }
-
-  header nav {
-    flex-direction: row;
-    gap: 10px;
-  }
-
-  header nav a {
-    font-size: 16px;
-    padding: 4px 0;
+  .logo {
+    margin-bottom: 12px;
+    text-align: center;
   }
 
   /* --------------------
-     TYPOGRAPHY
+     NAV (ROW-BASED, WRAPS)
   -------------------- */
-  h1 { font-size: 32px; }
-  h2 { font-size: 26px; }
-  h3 { font-size: 20px; }
+
+  header nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 12px;
+  }
+
+  header nav a {
+    font-size: 1rem;
+    padding: 4px 6px;
+  }
+
+  /* --------------------
+     SERVICES (INLINE LIST)
+  -------------------- */
+
+  .dropdown {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+  }
+
+  .dropbtn {
+    font-size: 1rem;
+    font-weight: 500;
+    pointer-events: none; /* label only */
+  }
+
+  .dropdown-content {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    background: none;
+    padding: 0;
+  }
+
+  .dropdown-content a {
+    font-size: 0.95rem;
+    opacity: 0.85;
+  }
+
+  /* Disable hover dropdown behavior */
+  .dropdown:hover .dropdown-content {
+    display: flex;
+  }
+
+  /* --------------------
+     HERO / HEADINGS
+  -------------------- */
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
 
   p {
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* --------------------
+     TWO-COLUMN → STACK
+  -------------------- */
+
+  .two-col,
+  .mission-section,
+  .service-block,
+  .hardscaping-main {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 48px 24px;
+  }
+
+  /* --------------------
+     IMAGES
+  -------------------- */
+
+  img {
+    max-width: 90%;
+    height: auto;
   }
 
   /* --------------------
      SERVICES GRID
   -------------------- */
+
   .services-grid {
-    grid-template-columns: repeat(2, 1fr); /* Two rows, two columns */
-    gap: 20px;
-  }
-
-  .service-card {
-    padding: 20px;
-  }
-
-  .service-card h3 {
-    font-size: 18px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
   /* --------------------
      FOOTER
   -------------------- */
+
   .footer-content {
-    grid-template-columns: 1fr 1fr; /* Two rows */
-    gap: 20px;
-    padding: 20px;
-  }
-
-  .footer-column h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-
-  .footer-nav a,
-  .footer-contact-info p {
-    font-size: 14px;
-  }
-
-  .footer-contact-button {
-    padding: 8px 16px;
-    font-size: 14px;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
   }
 }
 
@@ -1253,16 +1305,17 @@ input, textarea {
    SMALL PHONES
 -------------------- */
 
-@media (max-width: 500px) {
+@media (max-width: 480px) {
+
   .services-grid {
-    grid-template-columns: 1fr; /* Single column */
+    grid-template-columns: 1fr;
   }
 
-  .footer-content {
-    grid-template-columns: 1fr; /* Single column */
+  header nav {
+    gap: 0.75em;
   }
 
-  .footer-contact-button {
-    width: 100%; /* Full-width button */
+  h1 {
+    font-size: 2rem;
   }
 }
