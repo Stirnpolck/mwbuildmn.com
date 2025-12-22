@@ -1165,15 +1165,6 @@ input, textarea {
 }
 
 /* Mobile */
-@media (max-width: 900px) {
-  .contact-wrapper {
-      flex-direction:column;
-  }
-
-  .two-input-row {
-      flex-direction:column;
-  }
-}
 
 @media (max-width: 900px) {
 
