@@ -781,15 +781,8 @@ header nav a:focus {
   font-size: 22px;
 }
 
-.carpentry-link,
-.hardscaping-link {
-  display: block;
-  visibility: visible;
-  opacity: 1;
-  position: relative;
-  top: 0;
-  left: 0;
-}
+
+
 
 /* -------------------------------------------------
    MW BUILD FOOTER STYLES (REVISED)
@@ -868,7 +861,10 @@ header nav a:focus {
   text-decoration: underline;
 }
 
-
+/* Let's Work CTA Column - Now aligns left like others */
+.footer-cta-column {
+  /* Removed conflicting alignment properties like text-align: right and flex properties */
+}
 
 .footer-cta-column p {
   font-size: 18px;
@@ -1167,12 +1163,6 @@ input, textarea {
 .submit-btn:hover {
   background:#0d1533;
 }
-
-/* Parent container */
-.parent-container {
-  overflow: visible;
-}
-
 /* ======================================
    MOBILE STYLES (RESPONSIVE DESIGN)
 ====================================== */
@@ -1319,12 +1309,5 @@ input, textarea {
   p {
     font-size: 1rem;
     line-height: 1.6;
-  }
-
-  .carpentry-link,
-  .hardscaping-link {
-    display: inline-block;
-    font-size: 16px;
-    padding: 10px;
   }
 }
