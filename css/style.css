@@ -1537,10 +1537,3 @@ input, textarea {
     gap: 16px;
   }
 }
-
-.two-col,
-.about-section,
-.mission-section {
-  gap: 8px;
-  padding: 16px;
-}
