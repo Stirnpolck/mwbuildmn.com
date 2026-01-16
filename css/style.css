@@ -37,6 +37,7 @@ img {
 h1, h2, h3 {
     font-weight: 300;
     letter-spacing: 0.5px;
+    font-size: clamp(16px, 4vw, 20px);
 }
 
 
@@ -75,7 +76,7 @@ header nav a {
     padding: 6px 0;              /* Half of previous top/bottom padding */
     color: #ffffff;
     text-decoration: none;
-    font-size: clamp(16px, 2vw, 20px); /* Responsive font size */
+    font-size: clamp(16px, 4vw, 20px); /* Responsive font size */
     line-height: 1;              /* Prevent extra spacing */
     -webkit-tap-highlight-color: transparent;
 }
@@ -548,6 +549,13 @@ header nav a:focus {
   line-height: 2; /* Increased line height for proper spacing */
   margin: 0;
 }
+
+.mission-section img,
+.two-col img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* -------------------------------------------------
    MW BUILD SERVICES STYLES
 -------------------------------------------------- */
@@ -1093,10 +1101,9 @@ header nav a:focus {
 }
 
 .contact-wrapper {
-  display:flex;
-  gap:50px;
-  padding:60px;
-  align-items:flex-start;
+  display: flex;
+  flex-direction: column; /* Stack image and form vertically */
+  gap: 20px; /* Add spacing between the image and form */
 }
 
 .contact-image img {
@@ -1158,7 +1165,7 @@ input, textarea {
 }
 
 .submit-btn:hover {
-  background:#0d1533;
+  background: #0d1533;
 }
 
 /* ======================================
@@ -1348,7 +1355,7 @@ input, textarea {
 
   .service-card {
     padding: 20px; /* Reduce padding */
-    font-size: clamp(16px, 4vw, 18px); /* Responsive text size */
+    font-size: clamp(16px, 4vw, 20px); /* Responsive text size */
   }
 
   /* Mission section adjustments */
@@ -1396,7 +1403,7 @@ input, textarea {
 
   /* Adjust typography */
   h1, h2, h3 {
-    font-size: clamp(18px, 5vw, 24px);
+    font-size: clamp(16px, 4vw, 20px);
   }
 
   p {
@@ -1431,14 +1438,39 @@ input, textarea {
   }
 }
 
+@media (max-width: 768px) {
+  .contact-wrapper {
+    flex-direction: column; /* Stack the image and form vertically */
+    gap: 20px; /* Reduce spacing between elements */
+    padding: 20px; /* Reduce padding */
+  }
+
+  .contact-image img {
+    max-width: 100%; /* Ensure the image scales properly */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .contact-form {
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+
+  .two-input-row {
+    flex-direction: column; /* Stack inputs vertically */
+  }
+
+  .submit-btn {
+    width: 100%; /* Full-width button */
+  }
+}
+
 @media (max-width: 500px) {
 
   /* Further reduce spacing for small phones */
   .two-col,
   .about-section,
   .mission-section {
-    gap: 10px;
-    padding: 20px;
+    gap: 8px;
+    padding: 16px;
   }
 
   .services-grid {
@@ -1504,4 +1536,11 @@ input, textarea {
   .footer-content {
     gap: 16px;
   }
+}
+
+.two-col,
+.about-section,
+.mission-section {
+  gap: 8px;
+  padding: 16px;
 }

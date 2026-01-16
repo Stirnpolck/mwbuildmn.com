@@ -58,28 +58,27 @@
 
         <div class="two-input-row">
             <div class="input-group">
-                <label>First Name</label>
-                <input type="text" name="first-name" required>
+                <label for="first-name">First Name</label>
+                <input id="first-name" type="text" name="first-name" required>
             </div>
             <div class="input-group">
-                <label>Last Name</label>
-                <input type="text" name="last-name" required>
+                <label for="last-name">Last Name</label>
+                <input id="last-name" type="text" name="last-name" required>
             </div>
         </div>
 
         <div class="input-group">
-            <label>Email</label>
-            <input type="email" name="email" required>
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" required>
         </div>
 
         <div class="input-group">
-            <label>Phone</label>
-            <input type="text" name="phone" required>
+            <label for="phone">Phone</label>
+            <input id="phone" type="text" name="phone" required>
         </div>
 
         <div class="input-group">
             <label>Type of Project (select all that apply)</label>
-
             <div class="radio-list">
                 <label><input type="checkbox" name="project-type" value="New Home"> New Home</label>
                 <label><input type="checkbox" name="project-type" value="Addition"> Addition</label>
@@ -93,8 +92,8 @@
         </div>
 
         <div class="input-group">
-            <label>Comments / Description</label>
-            <textarea name="message" rows="6" required></textarea>
+            <label for="message">Comments / Description</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
         </div>
 
         <button type="submit" class="submit-btn">Submit</button>
