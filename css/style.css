@@ -861,10 +861,7 @@ header nav a:focus {
   text-decoration: underline;
 }
 
-/* Let's Work CTA Column - Now aligns left like others */
-.footer-cta-column {
-  /* Removed conflicting alignment properties like text-align: right and flex properties */
-}
+
 
 .footer-cta-column p {
   font-size: 18px;
@@ -1163,15 +1160,16 @@ input, textarea {
 .submit-btn:hover {
   background:#0d1533;
 }
+
 /* ======================================
-   MOBILE STYLES (RESPONSIVE DESIGN)
+   MOBILE STYLES
 ====================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
-  /* ======================
-     HEADER
-  ====================== */
+  /* --------------------
+     HEADER + NAV
+  -------------------- */
 
   header {
     flex-direction: column;
@@ -1180,61 +1178,105 @@ input, textarea {
   }
 
   header .logo {
-    margin-bottom: 12px;
+    margin-bottom: 20px;
   }
 
-  nav {
+  header nav {
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 14px;
   }
 
-  nav a {
-    font-size: 1rem;
+  header nav a {
+    font-size: 18px;
+    padding: 8px 0;
   }
 
-  /* Dropdown becomes inline stack */
+  /* SERVICES DROPDOWN → STACKED LIST */
   .dropdown {
-    position: static;
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: none; /* remove hover behavior */
+  }
+
+  .dropbtn {
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    cursor: default;
   }
 
   .dropdown-content {
     position: static;
     display: flex;
-    gap: 12px;
+    flex-direction: column;
     background: transparent;
-    box-shadow: none;
+    padding-top: 8px;
+    gap: 8px;
   }
 
-  .dropbtn {
-    pointer-events: none;
-    opacity: 0.7;
+  .dropdown-content a {
+    font-size: 16px;
+    opacity: 0.85;
+    padding-left: 12px;
   }
 
-  /* ======================
+  /* --------------------
+     TYPOGRAPHY
+  -------------------- */
+
+  h1 { font-size: 36px; }
+  h2 { font-size: 30px; }
+  h3 { font-size: 22px; }
+
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  /* --------------------
      HERO
-  ====================== */
+  -------------------- */
 
   .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
+    height: auto;
     padding: 60px 24px;
   }
 
-  .hero h1 {
-    font-size: 2.2rem;
+  /* --------------------
+     STACK ALL TWO-COLUMN LAYOUTS
+  -------------------- */
+
+  .two-col,
+  .service-grid,
+  .about-section,
+  .lower-about,
+  .mission-section,
+  .hardscaping-main,
+  .service-block {
+    grid-template-columns: 1fr !important;
+    flex-direction: column;
+    gap: 40px;
+    padding: 60px 24px;
   }
 
-  .hero img {
-    width: 100%;
-    max-width: 420px;
-    margin: 0 auto;
+  /* Images first */
+  .mission-image-wrapper,
+  .service-left,
+  .service-image {
+    order: -1;
   }
 
-  /* ======================
-     SERVICES GRID
-  ====================== */
+  /* --------------------
+     SERVICES GRID (2x2)
+  -------------------- */
 
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1242,39 +1284,16 @@ input, textarea {
   }
 
   .service-card {
-    padding: 24px;
+    padding: 28px 20px;
   }
 
   .service-card h3 {
-    font-size: 1.1rem;
+    font-size: 20px;
   }
 
-  /* ======================
-     MISSION / IMAGE + TEXT
-  ====================== */
-
-  .mission-section,
-  .service-block,
-  .hardscaping-main {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 60px 24px;
-  }
-
-  .mission-image-wrapper {
-    order: -1;
-  }
-
-  /* ======================
-     PROJECTS (SCROLL)
-  ====================== */
-
-  .projects-track {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    padding-bottom: 20px;
-  }
+  /* --------------------
+     PROJECTS SCROLLER
+  -------------------- */
 
   .project-item {
     flex: 0 0 260px;
@@ -1284,30 +1303,205 @@ input, textarea {
     height: 300px;
   }
 
-  /* ======================
+  /* --------------------
      FOOTER
-  ====================== */
+  -------------------- */
 
   .footer-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
-    text-align: center;
   }
 
-  .footer-column {
+  .footer-column h3 {
+    margin-bottom: 12px;
+  }
+
+  /* Adjust two-column layouts for mobile */
+  .two-col,
+  .mission-section,
+  .service-block {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    gap: 20px; /* Reduce gap */
+    padding: 40px 20px; /* Reduce padding */
+  }
+
+  /* Ensure images and text align properly */
+  .two-col img,
+  .mission-section img {
+    max-width: 100%; /* Prevent oversized images */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center images */
+  }
+
+  .two-col .text,
+  .mission-section .text {
+    font-size: clamp(16px, 4vw, 20px); /* Responsive font size */
+    line-height: 1.5; /* Adjust spacing */
+  }
+
+  /* Services grid adjustments */
+  .services-grid {
+    grid-template-columns: 1fr; /* Single column for small screens */
+    gap: 20px; /* Reduce gap */
+  }
+
+  .service-card {
+    padding: 20px; /* Reduce padding */
+    font-size: clamp(16px, 4vw, 18px); /* Responsive text size */
+  }
+
+  /* Mission section adjustments */
+  .mission-section {
+    grid-template-columns: 1fr; /* Stack content vertically */
+    align-items: center; /* Center content */
+  }
+
+  .mission-section img {
+    max-width: 80%; /* Limit image size */
+    margin-bottom: 20px; /* Add spacing below image */
+  }
+
+  .mission-section h2 {
+    font-size: clamp(24px, 5vw, 32px); /* Responsive header size */
+    text-align: center; /* Center text */
+  }
+
+  .mission-section p {
+    font-size: clamp(16px, 4vw, 20px); /* Responsive paragraph size */
+    text-align: center; /* Center text */
+  }
+
+  /* Adjust header layout */
+  header {
+    flex-direction: column;
     align-items: center;
+    padding: 20px;
   }
 
-  /* ======================
-     TYPE SCALE (SUBTLE)
-  ====================== */
+  header nav {
+    flex-direction: column;
+    gap: 16px;
+  }
 
-  h1 { font-size: 2.2rem; }
-  h2 { font-size: 1.8rem; }
-  h3 { font-size: 1.2rem; }
+  /* Stack two-column layouts */
+  .two-col,
+  .about-section,
+  .lower-about,
+  .mission-section {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+    padding: 40px 20px;
+  }
+
+  /* Adjust typography */
+  h1, h2, h3 {
+    font-size: clamp(18px, 5vw, 24px);
+  }
 
   p {
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.6;
+  }
+
+  /* Services grid adjustments */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-card {
+    padding: 20px;
+  }
+
+  /* Projects grid adjustments */
+  .projects-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .project-item {
+    flex: 1 1 auto;
+  }
+
+  /* Footer adjustments */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+
+  /* Further reduce spacing for small phones */
+  .two-col,
+  .about-section,
+  .mission-section {
+    gap: 10px;
+    padding: 20px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    padding: 16px;
+  }
+
+  .mission-section img {
+    max-width: 100%;
+  }
+
+  .mission-section h2,
+  .mission-section p {
+    font-size: clamp(14px, 3vw, 18px);
+  }
+}
+
+@media (max-width: 375px) {
+  /* Reduce padding and gaps */
+  .two-col,
+  .about-section,
+  .mission-section {
+    gap: 8px;
+    padding: 16px;
+  }
+
+  .services-grid {
+    gap: 16px;
+  }
+
+  .service-card {
+    padding: 12px;
+  }
+
+  /* Ensure images scale appropriately */
+  .mission-section img,
+  .two-col img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Adjust font sizes for readability */
+  h1, h2, h3 {
+    font-size: clamp(16px, 4vw, 20px);
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Ensure buttons are touch-friendly */
+  .submit-btn,
+  .footer-contact-button {
+    padding: 12px 16px;
+    font-size: 16px;
+  }
+
+  /* Footer adjustments */
+  .footer-content {
+    gap: 16px;
   }
 }
